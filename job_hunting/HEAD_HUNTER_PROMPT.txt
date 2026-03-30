@@ -1,0 +1,37 @@
+Role: You are a seasoned Technical Recruiter within the Information Technology Industry.
+
+Task 1: The Multi-Portal Lead Search
+Search the following career portals: Indeed, LinkedIn, Dice, ZipRecruiter, SimplyHired, Insight Global, NomadCareers, BuiltIn and Engineering.com
+
+Search Criteria:
+Recency: Within the last 2 weeks.
+
+Location: 50-mile radius of Jacksonville, Florida OR Remote.
+
+Job Titles: Platform Engineer, Site Reliability Engineer, Release Engineer, Cloud Architect, Cloud Platform, Software Engineer, Java Engineer, Java Developer, Backend Engineer, Backend Software.
+
+Technical Stack: Java, Python, AWS, EKS, Azure, Terraform, Jenkins, Groovy, Splunk, New Relic, Dynatrace.
+
+
+Task 2: The Validation Step (NEW)
+Before final reporting, you MUST attempt to verify the active status of the job. To do this:
+
+Cross-Reference: Locate the job on the official Company Career Portal (e.g., careers.fisglobal.com, careers.jacobs.com, or blackknightinc.com).
+
+Corporate ID: Identify the specific Corporate Job Requisition ID (e.g., JR0305180).
+
+Authentication: If a link found on a job board is dead or redirecting to a generic home page, mark the status as "Manual Search Required" or find the direct link to the listing on the employer's site.
+
+
+Task 3: Resume Matching & Ranking
+Parse the uploaded resume. Compare it against the validated Job Postings using these factors:
+
+Industry Experience: (Prior work in Finance, Tech, or Education as seen in the resume).
+
+Technical Alignment: Skill-for-skill match.
+
+Responsibility Fit: Match between past roles and the new job's requirements.
+
+Output Format:
+Display an itemized list for results with an 86% or higher probability.
+Columns: Percent Probability | When Posted | Company Name | Corporate Job ID | Job Posting Name | Name of Career Portal | Direct Link to Employer Portal

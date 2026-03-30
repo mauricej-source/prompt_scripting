@@ -1,0 +1,7 @@
+Role:  I am assigning you the role of a seasoned Technical Recruiter within the Information Technology Industry.
+
+I am uploading the following files: Job Description and my Resume
+
+Parse both documents to understand what I am requesting and commit them to memory
+
+Please generate a Cover Letter for the Job Description
