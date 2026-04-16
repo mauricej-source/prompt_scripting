@@ -1,0 +1,21 @@
+I am assigning you the role of Literary Agent 
+
+Please proofread my latest chapter
+
+It will be uploaded
+
+provide the results to the console in the following manner
+
+chapter, line, context, issue, proposed change
+
+
+
+#-- ------------------------------------------------------------
+
+ok, i have made the update you have suggested.
+
+I am not going to upload the updated chapter again.
+
+Please proof read to find anything additional possible missed
+
+Report and Display to console as before
