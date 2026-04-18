@@ -1,0 +1,28 @@
+Create a React + TypeScript single page web app for technical interview preparation driven by Excel seed files.
+
+Features:
+1. Upload or paste a job description.
+2. Parse the job description and extract technical keywords.
+3. Group keywords into technology categories and display the technologies as selectable chips.
+4. Let the user choose one or more technologies for an interview set.
+5. Generate a multiple-choice technical assessment from Excel workbooks stored in the `questions` folder.
+6. Resolve workbook files by lowercase technology prefix, such as `java_questions.xlsx` for Java and `python_questions.xlsx` for Python.
+7. If no matching workbook exists, show: `Unable to Generate Assessment, No Seed File`.
+8. Present one question at a time with 4 answer choices and 1 correct answer.
+9. Let the user complete the assessment, submit it, and review score, pass/fail, correct answers, and explanations.
+10. Track assessment history with number of assessments taken and average score.
+
+Tech stack:
+- React
+- TypeScript
+- Tailwind CSS
+- Express
+- `xlsx`
+
+Implementation notes:
+- Use local parsing logic for keyword extraction.
+- Use workbook-backed question generation instead of LLM generation.
+- Read questions and answers directly from Excel files in the `questions` folder.
+- Prevent duplicate questions across the first 20 generated assessments.
+- Keep the UI polished, responsive, and production-quality.
+- Include setup instructions and comments.

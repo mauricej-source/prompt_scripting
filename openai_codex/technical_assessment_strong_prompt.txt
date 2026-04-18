@@ -1,0 +1,161 @@
+Build a polished Single Page Web Application for interview preparation, focused on technical assessments generated from Excel seed files.
+
+Goal:
+Create a web app that allows a user to upload a job description, extract relevant technical keywords, group those keywords by technology category, let the user choose one or more technology chips, generate multiple-choice technical interview questions from workbook seed files, allow the user to complete the assessment, and score the final results.
+
+Technical expectations:
+- Build this as a modern single-page web app.
+- Use a clean, professional UI suitable for desktop first, but responsive on mobile.
+- Prefer a React frontend with TypeScript.
+- Keep the code organized, readable, and production-quality.
+- Use local/workbook logic instead of external AI services for assessment generation.
+- Include clear comments and a README section explaining how it works and how to run it.
+
+Functional requirements:
+
+1. Job Description Upload
+- Provide a file upload area that accepts:
+  - `.txt`
+  - `.pdf`
+  - `.docx`
+- Also provide a large textarea so the user can paste a job description manually.
+- After upload or paste, display the parsed job description content in a readable panel.
+
+2. Parse Uploaded Job Description for Keywords
+- Extract relevant technical keywords and phrases from the job description.
+- Focus on technical and industry-related items such as:
+  - programming languages
+  - frameworks
+  - cloud platforms
+  - databases
+  - DevOps tools
+  - testing tools
+  - data tools
+  - architecture concepts
+  - security concepts
+  - methodologies
+- Remove common stop words and irrelevant business filler.
+- Deduplicate keywords.
+- Show extracted keywords as chips or tags on the screen.
+
+3. Categorize Keywords into Technology Types
+- Group extracted keywords into categories such as:
+  - Programming Languages
+  - Frontend
+  - Backend
+  - Databases
+  - Cloud
+  - DevOps
+  - Testing
+  - Data Engineering / Analytics
+  - Security
+  - Architecture / Design
+  - Agile / Process
+  - Other
+- Display the category technologies directly as chips on screen rather than dropdowns.
+- Allow the user to select one or more technologies across categories.
+- If database keywords are extracted, add `SQL` to the available chips.
+- If DevOps keywords are extracted, add `Git` to the available chips.
+
+4. Generate Technical Interview Questions
+- After the user selects one or more technologies, generate a technical assessment.
+- Source the questions and answers from Excel files located in the `questions` folder.
+- Resolve each workbook by lowercase technology prefix.
+  - Example: selecting `Java` uses a workbook prefixed with `java`
+  - Example: selecting `Python` uses a workbook prefixed with `python`
+- If no matching seed file exists, show the message:
+  - `Unable to Generate Assessment, No Seed File`
+- Each question should:
+  - be relevant to the selected technology
+  - have 4 answer choices
+  - have exactly 1 correct answer
+  - include a short explanation after submission
+- Let the user choose the question count with a maximum of 30.
+- Mix difficulty levels with a difficulty filter:
+  - all
+  - easy
+  - medium
+  - hard
+- Avoid duplicate questions within an assessment.
+- Prevent repeated questions across the first 20 generated assessments; allow repeats starting with assessment 21.
+
+5. Assessment Experience
+- Present one question at a time with a clear progress indicator.
+- Allow the user to select an answer for each question.
+- Include:
+  - Next
+  - Previous
+  - Submit Assessment
+  - New Assessment
+- If `New Assessment` is clicked during an active assessment, stop the current run and generate a fresh one.
+- Reset the assessment timer whenever a new assessment starts.
+- Prevent accidental submission with unanswered questions unless the user confirms.
+- Keep state on the client during the session.
+
+6. Score the Results
+- When the user submits the assessment:
+  - calculate total score
+  - show number correct out of total
+  - show percentage
+  - show performance by technology/category if possible
+- Display a results summary page with:
+  - final score
+  - pass/fail indicator based on a default 70% threshold
+  - per-question review
+  - correct answer
+  - user’s selected answer
+  - brief explanation
+- Include an option to restart or generate a new assessment.
+
+7. Assessment History
+- Track the number of completed assessments.
+- Track the cumulative average score across completed assessments.
+- Display both metrics in the `Assessment Mix` panel.
+
+8. Nice-to-have UX Features
+- Attractive layout with cards, badges, chips, and progress indicators.
+- Error handling for invalid or empty uploads.
+- Loading states while parsing and generating questions.
+- Ability to clear the current session and upload a new job description.
+- Persist uploaded text, selected technologies, generated questions, and score in local state.
+- Use localStorage persistence for refresh recovery.
+- Allow main panels to expand and collapse, except the top hero panel.
+
+Implementation details:
+- Build the app in a single project with clear component separation.
+- Suggested component structure:
+  - App
+  - JobDescriptionUploader
+  - ParsedKeywordsPanel
+  - TechnologySelector
+  - AssessmentGenerator
+  - QuestionCard
+  - ResultsSummary
+- Use an Express API for local assessment generation.
+- Use `xlsx` on the server to read workbook files.
+- Generate distractor choices from workbook data while keeping the workbook answer as the correct choice.
+- Include sample seed data and fallback logic where appropriate for parsing, but use workbook files as the question source of truth.
+
+Design requirements:
+- Clean modern interface.
+- Professional interview-prep look and feel.
+- Responsive layout.
+- Accessible forms and buttons.
+- Use clear labels and instructional text.
+
+Acceptance criteria:
+- A user can upload or paste a job description.
+- The application extracts and displays technical keywords.
+- Keywords are grouped into technology categories.
+- The user can select one or more technologies from on-screen chips.
+- The app generates multiple-choice technical interview questions based on workbook seed files.
+- The user can answer the questions and submit the assessment.
+- The app calculates and displays the score with explanations.
+- The app tracks total assessments taken and average score.
+
+Output requirements:
+- Generate all necessary code files.
+- Ensure the app runs locally without requiring external APIs for question generation.
+- Keep workbook files in the `questions` folder as the assessment seed source.
+- Include clear setup instructions.
+- Make reasonable implementation decisions without asking follow-up questions.
